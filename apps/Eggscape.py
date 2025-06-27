@@ -154,10 +154,10 @@ class Eggscape:
     def run(self):
         self.init_game()
 
-        # self.show_splash_page()
+        self.show_splash_page()
 
-        # game = Game1()
-        # game.run()
+        game = Game1()
+        game.run()
 
         self.show_credits()
 
