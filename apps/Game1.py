@@ -90,7 +90,7 @@ class Game1:
     def __init__(self):
         self.running = True
         self.continue_game = False
-        
+
     def init_level(self, level_num):
         level = LEVEL_1
         if level_num == 2:
@@ -223,7 +223,7 @@ class Game1:
         return frame
 
     def init_game(self):
-        pygame.init()
+        # pygame.init()
         
         # holding a key sents another event every 100ms
         pygame.key.set_repeat(100)
@@ -258,7 +258,6 @@ class Game1:
         self.goal_image = pygame.image.load("images/nest_64.png")
 
         # load sounds        
-        pygame.mixer.init()
         self.victory_sound = pygame.mixer.Sound("sounds/victory.wav")
         self.victory_sound.set_volume(.1)
         self.death_sound = pygame.mixer.Sound("sounds/death.wav")
@@ -273,9 +272,6 @@ class Game1:
             self.settings.display_height))
 
         self.load_level(1)
-
-    def close_game(self):
-        pygame.quit()
 
     def init_input(self):
         self.move_x = 0
@@ -554,13 +550,7 @@ class Game1:
             self.render()
             self.clock.tick(60)
 
-        self.close_game()
-
-#     def run(self):
-#         while self.running:
-#             self.play_game()
-#             self.running = self.continue_game
-
-# if __name__ == "__main__":
-#     game = Game1()
-#     game.run()
+    def run(self):
+        while self.running:
+            self.play_game()
+            self.running = self.continue_game
